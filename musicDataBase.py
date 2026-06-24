@@ -3,6 +3,9 @@ import vlc
 paperCrowns = vlc.MediaPlayer(r"C:\Users\24mur\Music\Livingston\PaperCrowns.mp3")
 godGames = vlc.MediaPlayer(r"C:\Users\24mur\Music\EPIC The Musical\GodGames.mp3")
 mirage = vlc.MediaPlayer(r"C:\Users\24mur\Music\OneRepublic\Mirage.mp3")
+againstTheTide = vlc.MediaPlayer(r"C:\Users\24mur\Music\Sail North\AgainstTheTide.mp3")
+missingPiece = vlc.MediaPlayer(r"C:\Users\24mur\Music\John Michael Howell\MissingPiece.mp3")
 
 
-songs = [paperCrowns,godGames,mirage]
+songs = [paperCrowns,godGames,mirage,againstTheTide,missingPiece]
+songsPlayed = []
