@@ -1,6 +1,10 @@
 import vlc
+import random
+import musicDataBase
 
-player = vlc.MediaPlayer(r"C:\Users\24mur\Music\Livingston\PaperCrowns.mp3")
-player.play()
+def songSelect():
+    return random.choice(musicDataBase.songs)
+
+songSelect().play()
 
 input("Press Enter to quit...")
