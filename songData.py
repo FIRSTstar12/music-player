@@ -7,7 +7,7 @@ import os
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def getSongData(file):
+def printSongData(file):
     media = file.get_media()
 
     if media:
@@ -28,3 +28,19 @@ def getSongData(file):
         print(f"Duration: {minutes} minutes {seconds} seconds")
         # print(f"Bitrate: {tag.bitrate} kbps")
         # print(f"Sample Rate: {tag.samplerate} Hz")
+
+def getName(file):
+    media = file.get_media()
+
+    if media:
+        mrl = media.get_mrl()
+        parsed_url = urllib.parse.urlparse(mrl)
+        file_path = urllib.parse.unquote(parsed_url.path)
+        if file_path.startswith('/') and file_path[2] == ':':
+            file_path = file_path[1:]
+
+        fileName = file_path.split("/")[5]
+        songName = " ".join(re.findall(r'[A-Z][^A-Z]*', fileName.split(".")[0]))
+
+        return songName
+    
