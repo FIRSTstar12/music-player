@@ -5,7 +5,8 @@ godGames = vlc.MediaPlayer(r"C:\Users\24mur\Music\EPIC The Musical\GodGames.mp3"
 mirage = vlc.MediaPlayer(r"C:\Users\24mur\Music\OneRepublic\Mirage.mp3")
 againstTheTide = vlc.MediaPlayer(r"C:\Users\24mur\Music\Sail North\AgainstTheTide.mp3")
 missingPiece = vlc.MediaPlayer(r"C:\Users\24mur\Music\John Michael Howell\MissingPiece.mp3")
+ordidary = vlc.MediaPlayer(r"C:\Users\24mur\Music\Alex Warren\Ordinary.mp3")
 
 
-songs = [paperCrowns,godGames,mirage,againstTheTide,missingPiece]
+songs = [paperCrowns,godGames,mirage,againstTheTide,missingPiece,ordidary]
 songsPlayed = []
