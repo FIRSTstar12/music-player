@@ -1,4 +1,5 @@
 import time
+import keyboard
 import vlc
 import random
 import musicDataBase
@@ -10,8 +11,6 @@ def oneRandomSong():
     chosen = random.choice(musicDataBase.songs)
     return chosen
 
-songData.clear()
-
 def playAllSongs():
     playlist = musicDataBase.songs[:]
     random.shuffle(playlist)
@@ -20,10 +19,13 @@ def playAllSongs():
         song.play()
         songData.getSongData(song)
         time.sleep(0.5)
-    
+
         while song.is_playing():
-            time.sleep(1)
-        input("Press Enter to continue...")
+            if keyboard.is_pressed('n'):  # press N to skip
+                song.stop()
+                time.sleep(0.3)
+                break
+            time.sleep(0.1)
 
 songData.clear()
 playAllSongs()
