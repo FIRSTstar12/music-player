@@ -18,15 +18,16 @@ def playAllSongs():
 
     for song in playlist:
         song.play()
+        print(" ")
         songData.printSongData(song)
-        time.sleep(0.5)
+        time.sleep(3)
 
         while song.is_playing():
-            if keyboard.is_pressed('n'):
+            if keyboard.is_pressed('q'):
                 song.stop()
                 time.sleep(0.3)
                 break
-            time.sleep(0.1)
+            time.sleep(0.01)
 
 def songPicker():
     playlist = musicDataBase.songs[:]
@@ -40,11 +41,14 @@ def songPicker():
 
 songData.clear()
 allOrOne = input("Would you like to hear all of your songs on shuffle or just one?(all/one): ")
+songData.clear()
+
 if allOrOne == "all":
-    
+
     playAllSongs()
 
 elif allOrOne == "one":
+
     song = songPicker()
     songData.clear()
     song.play()
@@ -52,10 +56,10 @@ elif allOrOne == "one":
     time.sleep(0.5)
 
     while song.is_playing():
-        if keyboard.is_pressed('n'):
+        if keyboard.is_pressed('q'):
             song.stop()
             break
-        time.sleep(0.1)
+        time.sleep(0.01)
 else:
     song = oneRandomSong()
     song.play()
@@ -63,7 +67,7 @@ else:
     time.sleep(0.5)
 
     while song.is_playing():
-        if keyboard.is_pressed('n'):
+        if keyboard.is_pressed('q'):
             song.stop()
             break
         time.sleep(0.1)
