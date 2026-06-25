@@ -21,15 +21,16 @@ def printSongData(file):
         total_seconds = int(tag.duration)
         minutes = total_seconds // 60
         seconds = total_seconds % 60
-        fileName = file_path.split("/")[5]
-        songName = " ".join(re.findall(r'[A-Z][^A-Z]*', fileName.split(".")[0]))
+        
 
-        print("\nNow Playing: " + str(songName))
+        print(f"Now Playing: {tag.title} by {tag.artist}")
+        print(f"Album: {tag.album}")
         print(f"Duration: {minutes} minutes {seconds} seconds")
         # print(f"Bitrate: {tag.bitrate} kbps")
         # print(f"Sample Rate: {tag.samplerate} Hz")
 
 def getName(file):
+    songName = "Untitled Song"
     media = file.get_media()
 
     if media:
@@ -39,8 +40,7 @@ def getName(file):
         if file_path.startswith('/') and file_path[2] == ':':
             file_path = file_path[1:]
 
-        fileName = file_path.split("/")[5]
-        songName = " ".join(re.findall(r'[A-Z][^A-Z]*', fileName.split(".")[0]))
-
-        return songName
+        tag = TinyTag.get(file_path)
+        songName = tag.title + " by " + tag.artist
+    return songName
     

@@ -5,6 +5,7 @@ import random
 import musicDataBase
 import songData
 
+
 isPlay = False
 
 def oneRandomSong():
@@ -45,6 +46,7 @@ if allOrOne == "all":
 
 elif allOrOne == "one":
     song = songPicker()
+    songData.clear()
     song.play()
     songData.printSongData(song)
     time.sleep(0.5)
